@@ -193,44 +193,106 @@
           Welcome to DevElevate! We are a passionate team of developers dedicated to building efficient, scalable, and user-friendly web applications. Our expertise spans front-end and back-end development, ensuring seamless and high-performance digital solutions.
         </p>
 
-        <h3>What We Do</h3>
-        <div class="skills-block">
-          <div class="skill">
-            <h4>Front-End Development</h4>
-            <p>We create interactive and responsive UIs using HTML, CSS, JavaScript, and React.</p>
-          </div>
-          <div class="skill">
-            <h4>Back-End Engineering</h4>
-            <p>We build scalable and secure server-side applications with Node.js, Python, and Java.</p>
-          </div>
-          <div class="skill">
-            <h4>Database Management</h4>
-            <p>We handle structured and unstructured data with MySQL, PostgreSQL, and MongoDB.</p>
-          </div>
-          <div class="skill">
-            <h4>API Development</h4>
-            <p>We design and optimize RESTful and GraphQL APIs for seamless data integration.</p>
-          </div>
-          <div class="skill">
-            <h4>Cloud & DevOps</h4>
-            <p>We deploy and manage applications on AWS, Azure, and Google Cloud with CI/CD pipelines.</p>
-          </div>
-        </div>
-
-        <h3>Why Choose DevElevate?</h3>
-        <p>
-          We are committed to writing clean, modular, and well-documented code that ensures long-term maintainability. Our approach is user-centric, performance-driven, and continuously evolving with industry trends.
-        </p>
-
-        <h3>Our Mission</h3>
-        <p>
-          Our goal is to bridge the gap between business and technology by delivering high-quality, data-driven solutions that drive growth and innovation. Whether it's a web app, AI-powered system, or automation tool, we strive to bring ideas to life with precision and creativity.
-        </p>
-
-        <p><strong>Let’s elevate your digital experience together!</strong></p>
-      </div>
-    </div>
-  </section>
+        <section id="what-we-do">
+            <h2>What We Do</h2>
+            <div class="card-container">
+              <div class="card">
+                <h4>Front-End Development</h4>
+                <p>Interactive and responsive UIs using modern web technologies like React.</p>
+              </div>
+              <div class="card">
+                <h4>Back-End Engineering</h4>
+                <p>Scalable and secure server-side applications using Node.js, Python, and Java.</p>
+              </div>
+              <div class="card">
+                <h4>Database Management</h4>
+                <p>Expertise in structured and unstructured data with MySQL, PostgreSQL, and MongoDB.</p>
+              </div>
+              <div class="card">
+                <h4>API Development</h4>
+                <p>Creating optimized RESTful and GraphQL APIs for seamless data integration.</p>
+              </div>
+              <div class="card">
+                <h4>Cloud & DevOps</h4>
+                <p>Deploying applications on AWS, Azure, and Google Cloud with CI/CD pipelines.</p>
+              </div>
+            </div>
+            <button id="shuffle-cards">Shuffle Cards</button>
+          </section>
+          
+          <script>
+            // Shuffle Cards Functionality
+            document.getElementById("shuffle-cards").addEventListener("click", () => {
+              const container = document.querySelector(".card-container");
+              const cards = Array.from(container.children);
+          
+              // Shuffle the cards array using Fisher-Yates algorithm
+              for (let i = cards.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [cards[i], cards[j]] = [cards[j], cards[i]];
+              }
+          
+              // Clear the container and re-append shuffled cards
+              container.innerHTML = "";
+              cards.forEach(card => container.appendChild(card));
+            });
+          </script>
+          
+          <style>
+            /* Shuffling Cards Section */
+            #what-we-do {
+              padding: 3rem 2rem;
+              text-align: center;
+              background-color: #f1f1f1;
+              border-radius: 8px;
+            }
+          
+            .card-container {
+              display: flex;
+              flex-wrap: wrap;
+              gap: 1rem;
+              justify-content: center;
+              margin: 2rem 0;
+            }
+          
+            .card {
+              background-color: white;
+              border: 1px solid #ddd;
+              border-radius: 8px;
+              padding: 1rem;
+              width: 250px;
+              box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+              transition: transform 0.3s, box-shadow 0.3s;
+            }
+          
+            .card:hover {
+              transform: translateY(-5px);
+              box-shadow: 0 8px 10px rgba(0, 0, 0, 0.2);
+            }
+          
+            .card h4 {
+              margin-bottom: 0.5rem;
+              color: #007bff;
+            }
+          
+            .card p {
+              color: #555;
+            }
+          
+            #shuffle-cards {
+              padding: 0.75rem 1.5rem;
+              background-color: #007bff;
+              color: white;
+              border: none;
+              border-radius: 5px;
+              cursor: pointer;
+              transition: background 0.3s;
+            }
+          
+            #shuffle-cards:hover {
+              background-color: #0056b3;
+            }
+          </style>
 
   <!-- Projects Section -->
   <section id="projects">
