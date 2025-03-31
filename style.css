@@ -1,19 +1,19 @@
-/* General Styles */
+/* Global Reset & Base Styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, sans-serif;
-}
-
-body {
+  }
+  
+  body {
     background-color: #f8f9fa;
     color: #333;
     transition: background 0.3s, color 0.3s;
-}
-
-/* Header & Navigation */
-header {
+  }
+  
+  /* Header & Navigation */
+  header {
     background: #007bff;
     padding: 1rem 2rem;
     color: white;
@@ -21,61 +21,65 @@ header {
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-}
-
-nav {
+  }
+  
+  nav {
     display: flex;
     align-items: center;
     gap: 1.5rem;
-}
-
-nav ul {
+  }
+  
+  nav ul {
     list-style: none;
     display: flex;
     gap: 1rem;
-}
-
-nav a {
+  }
+  
+  nav a {
     text-decoration: none;
     color: white;
     font-weight: bold;
     transition: color 0.3s;
-}
-
-nav a:hover {
+  }
+  
+  nav a:hover {
     color: #ffeb3b;
-}
-
-/* Sections */
-section {
+  }
+  
+  /* Sections */
+  section {
     padding: 3rem 2rem;
     max-width: 900px;
     margin: auto;
     text-align: center;
-}
-
-#projects, #skills, #testimonials {
+  }
+  
+  #projects,
+  #skills,
+  #testimonials {
     background-color: #f1f1f1;
     padding: 3rem;
-}
-
-/* Contact Form */
-form {
+    border-radius: 8px;
+  }
+  
+  /* Contact Form */
+  form {
     display: flex;
     flex-direction: column;
     gap: 1rem;
     max-width: 500px;
     margin: auto;
-}
-
-form input, form textarea {
+  }
+  
+  form input,
+  form textarea {
     padding: 0.75rem;
     border: 1px solid #ccc;
     border-radius: 5px;
     width: 100%;
-}
-
-form button {
+  }
+  
+  form button {
     background: #ff4081;
     color: white;
     border: none;
@@ -83,33 +87,74 @@ form button {
     cursor: pointer;
     border-radius: 5px;
     transition: background 0.3s;
-}
-
-form button:hover {
+  }
+  
+  form button:hover {
     background: #e60073;
-}
-
-/* Footer */
-footer {
+  }
+  
+  /* Footer */
+  footer {
     text-align: center;
     padding: 1rem;
     background: #007bff;
     color: white;
-}
-
-footer a {
+  }
+  
+  footer a {
     color: #ffeb3b;
     text-decoration: none;
-}
-
-/* Dark Mode */
-.dark-mode {
+  }
+  
+  /* Dark Mode */
+  .dark-mode {
     background-color: #121212;
     color: #fff;
-}
-
-.dark-mode #projects, 
-.dark-mode #skills, 
-.dark-mode #testimonials {
+  }
+  
+  .dark-mode #projects,
+  .dark-mode #skills,
+  .dark-mode #testimonials {
     background-color: #1e1e1e;
-}
+  }
+  
+  /* Testimonial Slider Styles */
+  .slider-container {
+    position: relative;
+  }
+  
+  .testimonial {
+    display: none;
+    padding: 1.5rem;
+    background: #f1f1f1;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+  }
+  
+  .testimonial.active {
+    display: block;
+  }
+  
+  .testimonial-navigation {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  .testimonial-navigation button {
+    background: none;
+    border: 2px solid #007bff;
+    color: #007bff;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+  }
+  
+  .testimonial-navigation button:hover {
+    background: #007bff;
+    color: #fff;
+  }
+  

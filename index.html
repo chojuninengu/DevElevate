@@ -1,266 +1,342 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DevElevate - Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DevElevate - Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <style>
+    /* Global Reset & Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
 
-    <style>
-        /* CSS Variables */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
+    body {
+      background-color: #f8f9fa;
+      color: #333;
+      transition: background 0.3s, color 0.3s;
+    }
 
-body {
-    background-color: #f8f9fa;
-    color: #333;
-    transition: background 0.3s, color 0.3s;
-}
+    /* Header & Navigation */
+    header {
+      background: #007bff;
+      padding: 1rem 2rem;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
 
-/* Header & Navigation */
-header {
-    background: #007bff;
-    padding: 1rem 2rem;
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-}
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
 
-nav {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-}
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+    }
 
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 1rem;
-}
+    nav a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
 
-nav a {
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    transition: color 0.3s;
-}
+    nav a:hover {
+      color: #ffeb3b;
+    }
 
-nav a:hover {
-    color: #ffeb3b;
-}
+    /* Sections */
+    section {
+      padding: 3rem 2rem;
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+    }
 
-/* Sections */
-section {
-    padding: 3rem 2rem;
-    max-width: 900px;
-    margin: auto;
-    text-align: center;
-}
+    #projects,
+    #skills,
+    #testimonials {
+      background-color: #f1f1f1;
+      padding: 3rem;
+      border-radius: 8px;
+    }
 
-#projects, #skills, #testimonials {
-    background-color: #f1f1f1;
-    padding: 3rem;
-}
+    /* Contact Form */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 500px;
+      margin: auto;
+    }
 
-/* Contact Form */
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    max-width: 500px;
-    margin: auto;
-}
+    form input,
+    form textarea {
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      width: 100%;
+    }
 
-form input, form textarea {
-    padding: 0.75rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 100%;
-}
+    form button {
+      background: #ff4081;
+      color: white;
+      border: none;
+      padding: 0.75rem;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
 
-form button {
-    background: #ff4081;
-    color: white;
-    border: none;
-    padding: 0.75rem;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background 0.3s;
-}
+    form button:hover {
+      background: #e60073;
+    }
 
-form button:hover {
-    background: #e60073;
-}
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #007bff;
+      color: white;
+    }
 
-/* Footer */
-footer {
-    text-align: center;
-    padding: 1rem;
-    background: #007bff;
-    color: white;
-}
+    footer a {
+      color: #ffeb3b;
+      text-decoration: none;
+    }
 
-footer a {
-    color: #ffeb3b;
-    text-decoration: none;
-}
+    /* Dark Mode */
+    .dark-mode {
+      background-color: #121212;
+      color: #fff;
+    }
 
-/* Dark Mode */
-.dark-mode {
-    background-color: #121212;
-    color: #fff;
-}
+    .dark-mode #projects,
+    .dark-mode #skills,
+    .dark-mode #testimonials {
+      background-color: #1e1e1e;
+    }
 
-.dark-mode #projects, 
-.dark-mode #skills, 
-.dark-mode #testimonials {
-    background-color: #1e1e1e;
-}
+    /* ========================
+       Testimonial Slider Styles
+    ======================== */
+    .slider-container {
+      position: relative;
+    }
 
-</style>
-      
+    .testimonial {
+      display: none;
+      padding: 1.5rem;
+      background: #f1f1f1;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+
+    .testimonial.active {
+      display: block;
+    }
+
+    .testimonial-navigation {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .testimonial-navigation button {
+      background: none;
+      border: 2px solid #007bff;
+      color: #007bff;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .testimonial-navigation button:hover {
+      background: #007bff;
+      color: #fff;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>DevElevate</h1>
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <button id="theme-toggle">Dark Mode</button>
-        </nav>
-    </header>
-    
-    <!-- About Section -->
-    <section id="about">
-        <h2>About Us</h2>
-        <div class="about-container">
-            <div class="about-content">
-                <p>
-                    Welcome to DevElevate! We are a passionate team of developers dedicated to building efficient, scalable, and user-friendly web applications. Our expertise spans front-end and back-end development, ensuring seamless and high-performance digital solutions.
-                </p>
-    
-                <h3>What We Do</h3>
-                <div class="skills-block">
-                    <div class="skill">
-                        <h4>Front-End Development</h4>
-                        <p>We create interactive and responsive UIs using HTML, CSS, JavaScript, and React.</p>
-                    </div>
-                    <div class="skill">
-                        <h4>Back-End Engineering</h4>
-                        <p>We build scalable and secure server-side applications with Node.js, Python, and Java.</p>
-                    </div>
-                    <div class="skill">
-                        <h4>Database Management</h4>
-                        <p>We handle structured and unstructured data with MySQL, PostgreSQL, and MongoDB.</p>
-                    </div>
-                    <div class="skill">
-                        <h4>API Development</h4>
-                        <p>We design and optimize RESTful and GraphQL APIs for seamless data integration.</p>
-                    </div>
-                    <div class="skill">
-                        <h4>Cloud & DevOps</h4>
-                        <p>We deploy and manage applications on AWS, Azure, and Google Cloud with CI/CD pipelines.</p>
-                    </div>
-                </div>
-    
-                <h3>Why Choose DevElevate?</h3>
-                <p>
-                    We are committed to writing clean, modular, and well-documented code that ensures long-term maintainability. Our approach is user-centric, performance-driven, and continuously evolving with industry trends.
-                </p>
-    
-                <h3>Our Mission</h3>
-                <p>
-                    Our goal is to bridge the gap between business and technology by delivering high-quality, data-driven solutions that drive growth and innovation. Whether it's a web app, AI-powered system, or automation tool, we strive to bring ideas to life with precision and creativity.
-                </p>
-    
-                <p><strong>Let’s elevate your digital experience together!</strong></p>
-            </div>
+  <header>
+    <h1>DevElevate</h1>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button id="theme-toggle">Dark Mode</button>
+    </nav>
+  </header>
+
+  <!-- About Section -->
+  <section id="about">
+    <h2>About Us</h2>
+    <div class="about-container">
+      <div class="about-content">
+        <p>
+          Welcome to DevElevate! We are a passionate team of developers dedicated to building efficient, scalable, and user-friendly web applications. Our expertise spans front-end and back-end development, ensuring seamless and high-performance digital solutions.
+        </p>
+
+        <h3>What We Do</h3>
+        <div class="skills-block">
+          <div class="skill">
+            <h4>Front-End Development</h4>
+            <p>We create interactive and responsive UIs using HTML, CSS, JavaScript, and React.</p>
+          </div>
+          <div class="skill">
+            <h4>Back-End Engineering</h4>
+            <p>We build scalable and secure server-side applications with Node.js, Python, and Java.</p>
+          </div>
+          <div class="skill">
+            <h4>Database Management</h4>
+            <p>We handle structured and unstructured data with MySQL, PostgreSQL, and MongoDB.</p>
+          </div>
+          <div class="skill">
+            <h4>API Development</h4>
+            <p>We design and optimize RESTful and GraphQL APIs for seamless data integration.</p>
+          </div>
+          <div class="skill">
+            <h4>Cloud & DevOps</h4>
+            <p>We deploy and manage applications on AWS, Azure, and Google Cloud with CI/CD pipelines.</p>
+          </div>
         </div>
-    </section>
-    
-    <!-- Project Section -->
-     <section id="projects">
-        <h2>Projects</h2>
-        <div class="project-card">
-            <h4>Wikipedia Scraped Data</h4>
-            <p>Extracted and structured data from Wikipedia using web scraping techniques. The project showcases data collection, processing, and storage using Python.</p>
-            <a href="https://github.com/GDIAMEL/WIKIPEDIA-SCRAPPED-DATA-" target="_blank">View on GitHub</a>
-        </div>
-    </section>
-    
-    <!-- Skills Section -->
-    <section id="skills">
-        <h2>Technical Skills</h2>
-        <div class="skills-container">
-            <div class="skill-item">
-                <i class="fab fa-html5"></i>
-                <p>HTML</p>
-            </div>
-            <div class="skill-item">
-                <i class="fab fa-css3-alt"></i>
-                <p>CSS</p>
-            </div>
-            <div class="skill-item">
-                <i class="fab fa-js"></i>
-                <p>JavaScript</p>
-            </div>
-        </div>
-    </section>
 
-    <!-- Testimonial Section -->
-    <section id="testimonials">
-        <h2>Testimonials</h2>
-        <div id="testimonials-container"></div>
-    </section>
-    
-    <section id="contact">
-        <h2>Contact Me</h2>
-        <form>
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <textarea placeholder="Your Message" required></textarea>
-            <button type="submit">Send</button>
-        </form>
-    </section>
+        <h3>Why Choose DevElevate?</h3>
+        <p>
+          We are committed to writing clean, modular, and well-documented code that ensures long-term maintainability. Our approach is user-centric, performance-driven, and continuously evolving with industry trends.
+        </p>
 
-    <footer>
-        <p>&copy; 2025 DevElevate. All Rights Reserved.</p>
-    </footer>
+        <h3>Our Mission</h3>
+        <p>
+          Our goal is to bridge the gap between business and technology by delivering high-quality, data-driven solutions that drive growth and innovation. Whether it's a web app, AI-powered system, or automation tool, we strive to bring ideas to life with precision and creativity.
+        </p>
 
-    <script>
-        // Theme Toggle
-        const themeToggle = document.getElementById("theme-toggle");
-        themeToggle.addEventListener("click", () => {
-            document.body.classList.toggle("dark-mode");
-            themeToggle.textContent = 
-                document.body.classList.contains("dark-mode") ? "Light Mode" : "Dark Mode";
-        });
+        <p><strong>Let’s elevate your digital experience together!</strong></p>
+      </div>
+    </div>
+  </section>
 
-        // Sample Testimonials Data
-        const testimonials = [
-            { name: "Alice Johnson", text: "Great experience working with DevElevate!" },
-            { name: "John Ichungwa", text: "Top-notch developer. Highly recommended!" },
-            { name: "Enock Tarei", text: "Wow! This work is impressive" }
-        ];
+  <!-- Projects Section -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project-card">
+      <h4>Wikipedia Scraped Data</h4>
+      <p>
+        Extracted and structured data from Wikipedia using web scraping techniques. The project showcases data collection, processing, and storage using Python.
+      </p>
+      <a href="https://github.com/GDIAMEL/WIKIPEDIA-SCRAPPED-DATA-" target="_blank">View on GitHub</a>
+    </div>
+  </section>
 
-        const testimonialsContainer = document.getElementById("testimonials-container");
-        testimonials.forEach(testimonial => {
-            const div = document.createElement("div");
-            div.classList.add("testimonial");
-            div.innerHTML = `<p>"${testimonial.text}"</p><h4>- ${testimonial.name}</h4>`;
-            testimonialsContainer.appendChild(div);
-        });
-    </script>
+  <!-- Skills Section -->
+  <section id="skills">
+    <h2>Technical Skills</h2>
+    <div class="skills-container">
+      <div class="skill-item">
+        <i class="fab fa-html5"></i>
+        <p>HTML</p>
+      </div>
+      <div class="skill-item">
+        <i class="fab fa-css3-alt"></i>
+        <p>CSS</p>
+      </div>
+      <div class="skill-item">
+        <i class="fab fa-js"></i>
+        <p>JavaScript</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonial Section -->
+  <section id="testimonials">
+    <h2>Testimonials</h2>
+    <div class="slider-container">
+      <!-- Testimonials will be dynamically inserted here -->
+      <div id="testimonials-container"></div>
+      <div class="testimonial-navigation">
+        <button id="prev-testimonial"><i class="fas fa-chevron-left"></i></button>
+        <button id="next-testimonial"><i class="fas fa-chevron-right"></i></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea placeholder="Your Message" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 DevElevate. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    // Theme Toggle
+    const themeToggle = document.getElementById("theme-toggle");
+    themeToggle.addEventListener("click", () => {
+      document.body.classList.toggle("dark-mode");
+      themeToggle.textContent = document.body.classList.contains("dark-mode")
+        ? "Light Mode"
+        : "Dark Mode";
+    });
+
+    // Sample Testimonials Data
+    const testimonials = [
+      { name: "Alice Johnson", text: "Great experience working with DevElevate!" },
+      { name: "John Ichungwa", text: "Top-notch developer. Highly recommended!" },
+      { name: "Enock Tarei", text: "Wow! This work is impressive" }
+    ];
+
+    const testimonialsContainer = document.getElementById("testimonials-container");
+
+    // Build testimonial elements and mark the first as active
+    testimonials.forEach((testimonial, index) => {
+      const div = document.createElement("div");
+      div.classList.add("testimonial");
+      if (index === 0) div.classList.add("active");
+      div.innerHTML = `<p>"${testimonial.text}"</p><h4>- ${testimonial.name}</h4>`;
+      testimonialsContainer.appendChild(div);
+    });
+
+    // Testimonial Slider Functionality
+    const testimonialElems = document.querySelectorAll(".testimonial");
+    let currentTestimonial = 0;
+    function showTestimonial(index) {
+      testimonialElems.forEach((el, i) => {
+        el.classList.toggle("active", i === index);
+      });
+    }
+
+    document.getElementById("prev-testimonial").addEventListener("click", () => {
+      currentTestimonial = (currentTestimonial - 1 + testimonialElems.length) % testimonialElems.length;
+      showTestimonial(currentTestimonial);
+    });
+
+    document.getElementById("next-testimonial").addEventListener("click", () => {
+      currentTestimonial = (currentTestimonial + 1) % testimonialElems.length;
+      showTestimonial(currentTestimonial);
+    });
+  </script>
 </body>
 </html>
