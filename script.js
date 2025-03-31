@@ -25,7 +25,7 @@ testimonials.forEach((testimonial, index) => {
   testimonialsContainer.appendChild(div);
 });
 
-// Testimonial Slider Functionality
+// Testimonial Sliders Functionality
 const testimonialElems = document.querySelectorAll(".testimonial");
 let currentTestimonial = 0;
 
