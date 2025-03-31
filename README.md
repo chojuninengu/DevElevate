@@ -1,5 +1,19 @@
 # DevElevate - Portfolio Website
 
+## Table of Contents
+
+- [About](#about)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Installation & Setup](#installation--setup)
+- [Usage](#usage)
+- [Project Structure](#project-structure)
+- [Customization](#customization)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
+
+## About
 Welcome to **DevElevate**! This is a modern, responsive, and interactive portfolio website built to showcase projects, technical skills, and testimonials.
 
 ## Features
