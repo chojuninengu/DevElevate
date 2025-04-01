@@ -42,7 +42,7 @@ DevElevate/
 ## Getting Started
 1. Clone the repository:
    ```sh
-   git clone https://github.com/your-username/DevElevate.git
+   git clone https://github.com/choujuninengu/DevElevate.git
    ```
 2. Open `index.html` in a browser.
 3. Customize as needed.
