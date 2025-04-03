@@ -41,3 +41,20 @@ DevElevate/
 
 ## Getting Started
 1. Clone the repository:
+   ```sh
+   git clone https://github.com/choujuninengu/DevElevate.git
+   ```
+2. Open `index.html` in a browser.
+3. Customize as needed.
+
+## Contact
+Email: DevElevate@tech.com  
+Website: [DevElevate](https://DevElevate.com.com)  
+Twitter: [@yourhandle](https://twitter.com/yourhandle)
+
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+
+
+
